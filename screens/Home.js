@@ -1,14 +1,36 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React, { useLayoutEffect } from 'react'
+import { ScrollView, View } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native'
+import { Avatar } from 'react-native-elements/dist/avatar/Avatar';
+import CustomListItem from '../components/CustomListItem';
 import { auth } from '../firebase';
 
-const Home = () => {
-    console.log(auth.currentUser);
-    
+const Home = ({ navigation }) => {
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            title: "Signal",
+            headerStyle: { backgroundColor: 'white' },
+            headerTitleStyle: { color: 'black' },
+            headerTintColor: 'black',
+            headerLeft: () => (
+                <View style={{ marginLeft: 20 }}>
+                    <Avatar
+                        rounded
+                        source={{
+                            uri: auth?.currentUser.photoURL
+                        }}
+                    />
+                </View>
+            )
+        })
+    }, [])
+
     return (
-        <View>
-            <Text>Home</Text>
-        </View>
+        <SafeAreaView>
+            <ScrollView>
+                <CustomListItem />
+            </ScrollView>
+        </SafeAreaView>
     )
 }
 

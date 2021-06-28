@@ -11,7 +11,7 @@ const Register = ({ navigation }) => {
     const [password, setPassword] = useState("");
     const [imageUrl, setImageUrl] = useState("");
 
-    // similar to use effect of react native
+    // similar to use effect, is used to customize the default top bar and stuff
     useLayoutEffect(() => {
         navigation.setOptions({
             headerBackTitle: 'Back to Login'

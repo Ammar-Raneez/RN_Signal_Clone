@@ -21,7 +21,9 @@ const Login = ({ navigation }) => {
     }, [])
 
     const signIn = () => {
-
+        auth.signInWithEmailAndPassword(email, password)
+            .then(() => navigation.replace("Home"))
+            .catch(error => alert(error.message))
     }
 
     const register = () => {
