@@ -9,7 +9,7 @@ const AddChat = ({ navigation }) => {
     useLayoutEffect(() => {
         navigation.setOptions({
             title: 'Add A New Chat',
-            headerBackTitle: 'Chats'
+            headerBackTitle: 'Chats',
         })
     }, [navigation])
 
@@ -42,6 +42,8 @@ export default AddChat
 
 const styles = StyleSheet.create({
     container: {
-
+        backgroundColor: 'white',
+        padding: 20,
+        height: '100%',
     }
 })
