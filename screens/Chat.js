@@ -32,7 +32,7 @@ const Chat = ({ navigation, route }) => {
                     <Avatar
                         rounded 
                         source={{
-                            uri: 'https://png.pngtree.com/png-clipart/20210523/original/pngtree-girl-with-small-flower-colorful-character-avatar-png-image_6317028.jpg'
+                            uri: pastMessages[0]?.data.photoURL || 'https://www.seekpng.com/png/detail/110-1100707_person-avatar-placeholder.png'
                         }}
                     />
                     <Text
@@ -72,7 +72,7 @@ const Chat = ({ navigation, route }) => {
                 </View>
             )
         })
-    }, [navigation])
+    }, [navigation, pastMessages])
 
     useLayoutEffect(() => {
         const unsubscribe = db.collection('chats').doc(route.params.id).collection('messages').orderBy('timestamp', 'desc')

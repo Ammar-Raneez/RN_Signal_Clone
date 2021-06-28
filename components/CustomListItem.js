@@ -1,15 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { StyleSheet } from 'react-native'
 import { ListItem } from 'react-native-elements'
 import { Avatar } from 'react-native-elements/dist/avatar/Avatar'
+import { db } from '../firebase'
 
 const CustomListItem = ({ id, chatName, enterChat }) => {
+    const [chatMessages, setChatMessages] = useState([]);
+
+    useEffect(() => {
+        const unsubscribe = db.collection('chats').doc(id).collection('messages').orderBy('timestamp', 'desc')
+            .onSnapshot(snapshot => (
+                setChatMessages(snapshot.docs.map(doc => doc.data()))
+            ))
+
+        return unsubscribe;
+    }, [])
+
     return (
-        <ListItem onPress={() => enterChat(id, chatName)} key={id} bottomDivider>
+        <ListItem key={id} onPress={() => enterChat(id, chatName)} key={id} bottomDivider>
             <Avatar
                 rounded
                 source={{
-                    uri: 'https://png.pngtree.com/png-clipart/20210523/original/pngtree-girl-with-small-flower-colorful-character-avatar-png-image_6317028.jpg'
+                    uri: chatMessages?.[0]?.photoURL || 'https://www.seekpng.com/png/detail/110-1100707_person-avatar-placeholder.png'
                 }}
             />
             <ListItem.Content>
@@ -17,7 +29,7 @@ const CustomListItem = ({ id, chatName, enterChat }) => {
                     {chatName}
                 </ListItem.Title>
                 <ListItem.Subtitle numberOfLines={1} ellipsizeMode='tail'>
-                    this is a long text this is a long text this is a long textthis is a long textthis is a long textthis is a long textthis is a long textthis is a long textthis is a long textthis is a long text this is a long text this is a long textthis is a long textthis is a long textthis is a long textthis is a long text
+                    {chatMessages?.[0]?.displayName} : {chatMessages?.[0]?.message}
                 </ListItem.Subtitle>
             </ListItem.Content>
         </ListItem>
