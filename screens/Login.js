@@ -57,6 +57,7 @@ const Login = ({ navigation }) => {
                     value={password}
                     style={{ outline: "none" }}
                     onChangeText={text => setPassword(text)}
+                    onSubmitEditing={signIn}
                 />
             </View>
 
