@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { KeyboardAvoidingView, StyleSheet, View } from 'react-native'
 import { Button, Input, Image } from 'react-native-elements';
 import { auth } from '../firebase';
@@ -7,6 +7,12 @@ import { auth } from '../firebase';
 const Login = ({ navigation }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerTitleStyle: { alignSelf: 'center' },
+        })
+    }, [])
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(authUser => {

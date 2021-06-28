@@ -14,7 +14,7 @@ const Register = ({ navigation }) => {
     // similar to use effect, is used to customize the default top bar and stuff
     useLayoutEffect(() => {
         navigation.setOptions({
-            headerBackTitle: 'Back to Login'
+            headerTitleStyle: { marginLeft: -20 },
         })
     }, [navigation])
 

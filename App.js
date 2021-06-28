@@ -1,7 +1,6 @@
 import 'react-native-gesture-handler';
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Login from './screens/Login';
@@ -13,9 +12,9 @@ import Chat from './screens/Chat';
 const Stack = createStackNavigator();
 
 const globalScreenOptions = {
-  headerStyle: { backgroundColor: '#2C68f6' },
-  headerTitleStyle: { color: 'white' },
-  headerTintColor: 'white',
+  headerStyle: { backgroundColor: 'white' },
+  headerTitleStyle: { color: 'black' },
+  headerTintColor: 'black',
 }
 
 export default function App() {

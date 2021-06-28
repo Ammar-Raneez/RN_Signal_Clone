@@ -33,7 +33,7 @@ const Chat = ({ navigation, route }) => {
                     />
                     <Text
                         style={{
-                            color: 'white',
+                            color: 'black',
                             marginLeft: 10,
                             fontWeight: '700'
                         }}
@@ -47,7 +47,7 @@ const Chat = ({ navigation, route }) => {
                     style={{ marginLeft: 10 }}
                     onPress={navigation.goBack}
                 >
-                    <AntDesign name="arrowleft" size={24} color="white" />
+                    <AntDesign name="arrowleft" size={24} color="black" />
                 </TouchableOpacity>
             ),
             headerRight: () => (
@@ -60,10 +60,10 @@ const Chat = ({ navigation, route }) => {
                     }}
                 >
                     <TouchableOpacity>
-                        <FontAwesome name="video-camera" size={24} color="white" />
+                        <FontAwesome name="video-camera" size={24} color="black" />
                     </TouchableOpacity>
                     <TouchableOpacity>
-                        <Ionicons name="call" size={24} color="white" />
+                        <Ionicons name="call" size={24} color="black" />
                     </TouchableOpacity>
                 </View>
             )

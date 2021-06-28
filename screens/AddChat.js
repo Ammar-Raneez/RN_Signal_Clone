@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useState } from 'react'
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { Button, StyleSheet, View } from 'react-native'
 import { Icon, Input } from 'react-native-elements'
 import { db } from '../firebase';
 
@@ -9,7 +9,7 @@ const AddChat = ({ navigation }) => {
     useLayoutEffect(() => {
         navigation.setOptions({
             title: 'Add A New Chat',
-            headerBackTitle: 'Chats',
+            headerTitleStyle: { marginLeft: -20 },
         })
     }, [navigation])
 
