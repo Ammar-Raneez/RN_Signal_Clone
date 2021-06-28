@@ -22,7 +22,7 @@ const Register = ({ navigation }) => {
         auth.createUserWithEmailAndPassword(email, password)
             .then(authUser => {
                 authUser.user.updateProfile({
-                    displayName: name,
+                    displayName: fullName,
                     photoURL: imageUrl || 'https://p.kindpng.com/picc/s/78-785904_block-chamber-of-commerce-avatar-white-avatar-icon.png'
                 })
             })
