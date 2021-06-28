@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, View } from 'react-native'
 import { Button, Input, Image } from 'react-native-elements';
 
-const Login = () => {
+const Login = ({ navigation }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -12,7 +12,7 @@ const Login = () => {
     }
 
     const register = () => {
-
+        navigation.navigate("Register")
     }
 
     return (
@@ -22,7 +22,7 @@ const Login = () => {
                 source={{
                     uri: 'https://blog.mozilla.org/internetcitizen/files/2018/08/signal-logo.png'
                 }}
-                style={{ width: 200, height:200 }}
+                style={{ width: 200, height: 200 }}
             />
 
             <View style={styles.inputContainer}>
@@ -31,7 +31,8 @@ const Login = () => {
                     autofocus 
                     type="email"
                     value={email}
-                    onChange={text => setEmail(text)}
+                    style={{ outline: "none" }}
+                    onChangeText={text => setEmail(text)}
                 />
                 <Input 
                     placeholder="Password" 
@@ -39,6 +40,7 @@ const Login = () => {
                     type="password" 
                     secureTextEntry 
                     value={password}
+                    style={{ outline: "none" }}
                     onChangeText={text => setPassword(text)}
                 />
             </View>
