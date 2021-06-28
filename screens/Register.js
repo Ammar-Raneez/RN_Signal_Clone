@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { StatusBar } from 'react-native'
 import { KeyboardAvoidingView, StyleSheet, View } from 'react-native'
 import { Input, Text, Button } from 'react-native-elements'
+import { auth } from '../firebase'
 
 const Register = ({ navigation }) => {
     const [fullName, setFullName] = useState("");
@@ -18,7 +19,14 @@ const Register = ({ navigation }) => {
     }, [navigation])
 
     const register = () => {
-
+        auth.createUserWithEmailAndPassword(email, password)
+            .then(authUser => {
+                authUser.user.updateProfile({
+                    displayName: name,
+                    photoURL: imageUrl || 'https://p.kindpng.com/picc/s/78-785904_block-chamber-of-commerce-avatar-white-avatar-icon.png'
+                })
+            })
+            .catch(error => alert(error.message))
     }
 
     return (
