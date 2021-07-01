@@ -26,7 +26,6 @@ const AddChat = ({ navigation }) => {
             <Input
                 placeholder="Enter a chat name"
                 value={chatName}
-                style={{ outline: 'none' }}
                 onChangeText={text => setChatName(text)}
                 leftIcon={
                     <Icon name="wechat" type="antdesign" size={24} color="black" />

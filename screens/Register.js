@@ -31,8 +31,6 @@ const Register = ({ navigation }) => {
 
     return (
         <KeyboardAvoidingView behavior="padding" style={styles.container}>
-            <StatusBar style="light" />
-
             <Text h3 style={{ marginBottom: 50 }}>
                 Create a Signal Account
             </Text>
@@ -43,14 +41,12 @@ const Register = ({ navigation }) => {
                     autofocus
                     type="text"
                     value={fullName}
-                    style={{ outline: "none" }}
                     onChangeText={text => setFullName(text)}
                 />
                 <Input
                     placeholder="Email"
                     type="email"
                     value={email}
-                    style={{ outline: "none" }}
                     onChangeText={text => setEmail(text)}
                 />
                 <Input
@@ -59,7 +55,6 @@ const Register = ({ navigation }) => {
                     type="password"
                     secureTextEntry
                     value={password}
-                    style={{ outline: "none" }}
                     onChangeText={text => setPassword(text)}
                 />
                 <Input
@@ -67,7 +62,6 @@ const Register = ({ navigation }) => {
                     autofocus
                     type="text"
                     value={imageUrl}
-                    style={{ outline: "none" }}
                     onChangeText={text => setImageUrl(text)}
                     // on pressing enter on final field
                     onSubmitEditing={register}

@@ -102,7 +102,6 @@ const Chat = ({ navigation, route }) => {
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
-            <StatusBar style="light" />
             <KeyboardAvoidingView
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
                 style={styles.container}
@@ -161,7 +160,6 @@ const Chat = ({ navigation, route }) => {
                                 onSubmitEditing={sendMessage}
                                 placeholder="Signal Message" 
                                 style={{
-                                    outline: 'none',
                                     bottom: 0,
                                     height: 40,
                                     flex: 1,

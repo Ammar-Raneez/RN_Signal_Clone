@@ -38,7 +38,6 @@ const Login = ({ navigation }) => {
 
     return (
         <KeyboardAvoidingView behavior="padding" style={styles.container}>
-            <StatusBar style="light" />
             <Image
                 source={{
                     uri: 'https://blog.mozilla.org/internetcitizen/files/2018/08/signal-logo.png'
@@ -52,7 +51,6 @@ const Login = ({ navigation }) => {
                     autofocus 
                     type="email"
                     value={email}
-                    style={{ outline: "none" }}
                     onChangeText={text => setEmail(text)}
                 />
                 <Input 
@@ -61,7 +59,6 @@ const Login = ({ navigation }) => {
                     type="password" 
                     secureTextEntry 
                     value={password}
-                    style={{ outline: "none" }}
                     onChangeText={text => setPassword(text)}
                     onSubmitEditing={signIn}
                 />

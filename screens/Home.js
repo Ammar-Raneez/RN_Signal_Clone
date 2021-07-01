@@ -23,6 +23,7 @@ const Home = ({ navigation }) => {
     }, [])
 
     const signOut = () => {
+        navigation.replace("Login")
         auth.signOut()
             .then(() => {
                 navigation.replace("Login")
@@ -43,7 +44,7 @@ const Home = ({ navigation }) => {
                         <Avatar
                             rounded
                             source={{
-                                uri: auth?.currentUser.photoURL
+                                uri: auth?.currentUser.photoURL != null ? auth?.currentUser.photoURL : 'https://www.seekpng.com/png/detail/110-1100707_person-avatar-placeholder.png'
                             }}
                         />
                     </TouchableOpacity>
